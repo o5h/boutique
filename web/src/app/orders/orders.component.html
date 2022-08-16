@@ -1,0 +1,15 @@
+<h2>Orders</h2>
+<ul class="list-group">
+  <li *ngFor="let order of orders" class="list-group-item" [class.active]="order === selectedOrder" type="button"
+    (click)="onSelect(order)">
+    <span [ngClass]="getClass(order)">{{order.id}}</span>
+    <span>{{order.status}}</span>
+    <span>{{order.description}}</span>
+  </li>
+</ul>
+
+<button type="button" class="btn btn-primary" (click)="onCreate()">Create</button>
+<app-order *ngIf="selectedOrder; else notSelected" [order]="selectedOrder"></app-order>
+<ng-template #notSelected>
+  <p>Order not selected</p>
+</ng-template>

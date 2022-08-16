@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -29,6 +30,7 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/orders", func(w http.ResponseWriter, r *http.Request) {
+		time.Sleep(3 * time.Second)
 		res := Response{Payload: Orders}
 		payload, err := json.Marshal(res)
 		if err != nil {

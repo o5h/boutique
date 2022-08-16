@@ -5,3 +5,10 @@ export interface Order {
     description: string;
     created: number;
 }
+
+export const EmptyOrder: Order = {
+    id: 0,
+    status: "",
+    description: "",
+    created: 0
+}
