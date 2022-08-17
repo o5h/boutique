@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { LoadingService } from '../loading/loading.service';
+import { MessagesService } from '../messages/messages.service';
 import { Order } from '../model/order';
 import { OrdersService } from '../services/orders.service';
 
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private ordersService: OrdersService,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService,
+    private messagesService: MessagesService) { }
 
   ngOnInit(): void {
     this.reloadOrders()
@@ -24,6 +26,14 @@ export class HomeComponent implements OnInit {
   reloadOrders(): void {
     this.orders$ = this.loadingService.loadingOnUntilCompleted(
       this.ordersService.loadAllOrders()
+        .pipe(
+          catchError(err => {
+            const msg = "can't load orders";
+            this.messagesService.showMessages(msg);
+            console.log(msg, err);
+            return throwError(() => err);
+          })
+        )
     );
   }
 

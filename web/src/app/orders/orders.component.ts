@@ -22,5 +22,5 @@ export class OrdersComponentComponent implements OnInit {
 
   onCreate(): void {this.selectedOrder = {...EmptyOrder}}
   
-  getClass(order: Order): string { return this.selectedOrder === order ? "" : order.status }
+  getClass(order: Order): string { return this.selectedOrder === order ? "active" : order.status }
 }

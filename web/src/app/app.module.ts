@@ -13,6 +13,7 @@ import { PageNotFoundComponentComponent } from './page-not-found-component/page-
 import { WelcomePageComponentComponent } from './welcome-page-component/welcome-page-component.component';
 import { HomeComponent } from './home/home.component';
 import { LoadingComponent } from './loading/loading.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoadingComponent } from './loading/loading.component';
     OrdersComponentComponent,
     OrderComponentComponent,
     HomeComponent,
-    LoadingComponent
+    LoadingComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

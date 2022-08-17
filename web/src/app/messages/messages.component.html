@@ -1,0 +1,6 @@
+<ng-container *ngIf="(messages$ |async)as messages">
+    <div *ngIf="visible" class="container">
+        <div *ngFor="let msg of messages">{{msg}}</div>
+        <button type="button" class="btn btn-danger" (click)="onClose()">Close</button>
+    </div>
+</ng-container>
