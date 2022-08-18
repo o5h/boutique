@@ -2,6 +2,8 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"time"
@@ -29,6 +31,13 @@ type Response struct {
 func main() {
 	r := mux.NewRouter()
 
+	r.HandleFunc("/orders/{id}", func(w http.ResponseWriter, r *http.Request) {
+		id := mux.Vars(r)["id"]
+		data, _ := ioutil.ReadAll(r.Body)
+		fmt.Println(id, string(data))
+
+	}).Methods(http.MethodPut)
+
 	r.HandleFunc("/orders", func(w http.ResponseWriter, r *http.Request) {
 		time.Sleep(3 * time.Second)
 		res := Response{Payload: Orders}
@@ -38,7 +47,7 @@ func main() {
 		}
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(payload)
-	})
+	}).Methods(http.MethodGet)
 
 	http.ListenAndServe("127.0.0.1:9000", r)
 }

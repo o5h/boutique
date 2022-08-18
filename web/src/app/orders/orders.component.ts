@@ -8,8 +8,7 @@ import { EmptyOrder, Order } from '../model/order';
 })
 export class OrdersComponentComponent implements OnInit {
 
-  @Input()
-  orders: Order[] | null = [];
+  @Input() orders: Order[] | null = [];
   selectedOrder?: Order;
 
   constructor() { }
@@ -20,7 +19,7 @@ export class OrdersComponentComponent implements OnInit {
     this.selectedOrder = order;
   }
 
-  onCreate(): void {this.selectedOrder = {...EmptyOrder}}
-  
+  onCreate(): void { this.selectedOrder = { ...EmptyOrder } }
+
   getClass(order: Order): string { return this.selectedOrder === order ? "active" : order.status }
 }

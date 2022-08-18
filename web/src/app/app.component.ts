@@ -5,8 +5,8 @@ import { MessagesService } from './messages/messages.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [LoadingService, MessagesService]
+  styleUrls: ['./app.component.scss']
+  
 })
 export class AppComponent {
   title = 'boutique';
