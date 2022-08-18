@@ -5,7 +5,7 @@ import { MessagesService } from "../messages/messages.service";
 import { Order } from "../model/order";
 import { OrdersService } from "./orders.service";
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class OrdersStore {
     private subject = new BehaviorSubject<Order[]>([]);
     orders$ = this.subject.asObservable();

@@ -1,0 +1,9 @@
+<div *ngIf="authStorage.isLoggedOut$ |async" class="card">
+    <div class="card-body">
+        <input type="text" [(ngModel)]="email" />
+        <input type="text" [(ngModel)]="password" />
+    </div>
+    <div>
+        <button (click)="onLogin()"> Log-In</button>
+    </div>
+</div>

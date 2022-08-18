@@ -16,6 +16,7 @@ import { OrderComponentComponent } from './order/order.component';
 import { OrdersComponentComponent } from './orders/orders.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { WelcomePageComponentComponent } from './welcome-page-component/welcome-page-component.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { WelcomePageComponentComponent } from './welcome-page-component/welcome-
     OrderComponentComponent,
     HomeComponent,
     LoadingComponent,
-    MessagesComponent
+    MessagesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
